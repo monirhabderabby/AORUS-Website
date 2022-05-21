@@ -13,7 +13,7 @@ const Banner = () => {
   <div class="hero-content text-center text-neutral-content">
     <div class="md:max-w-md lg:max-w-lg">
       <h1 class="mb-5 text-5xl font-bold">AORUS MOTHERBOARD</h1>
-      <p class="mb-5">We are the number one motherBoard manufacturer company in the World. Our AORUS motherboard is specially for Gamers but everyone can use it. We will launch super powerfull motherboard in 2023. If you are interrested about our super powerfull motherboard please.</p>
+      <p class="mb-5">With  technology  moving so  fast, AORUS still keep up with the latest trends and provide our customers with advanced features and latest technology. GIGABYTE Z690 Series motherboards come with upgraded power solution, latest storage standards and outstanding connectivity to enable optimize performance for gaming.​</p>
       <button class="btn btn-primary">SUBSCRIBE</button>
     </div>
   </div>

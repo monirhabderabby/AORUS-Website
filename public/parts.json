@@ -1,0 +1,56 @@
+[
+    {
+        "_id": 1,
+        "name": "Z690 AORUS XTREME WATERFORCE (rev. 1.0)",
+        "description": "GIGABYTE Z690 Motherboards feature the latest DDR5 architecture and XMP 3.0 capability. The new DDR5 memory technology brings 50% more bandwidth to the platform and increases the system performance drastically by implementing Unlocked Native DDR5 Voltage, Xtreme Memory Routing and reliable SMD slot. In addition to the hardware upgrades, the user friendly UI provides full functionality to overclock higher with exclusive DDR5 tuning capability. ",
+        "image": "https://static.gigabyte.com/StaticFile/Image/Global/a69f9bb87f60c6790231072d435c9d13/Product/30267/webp/1000",
+        "minimum-order": 1000,
+        "available-quantity": 100000,
+        "price": 3500
+    },
+    {
+        "_id": 2,
+        "name": "Z690 AORUS XTREME (rev. 1.0)",
+        "description": "GIGABYTE Z690 Motherboards feature the latest DDR5 architecture and XMP 3.0 capability. The new DDR5 memory technology brings 50% more bandwidth to the platform and increases the system performance drastically by implementing Unlocked Native DDR5 Voltage, Xtreme Memory Routing and reliable SMD slot. In addition to the hardware upgrades, the user friendly UI provides full functionality to overclock higher with exclusive DDR5 tuning capability.",
+        "image": "https://static.gigabyte.com/StaticFile/Image/Global/2c3d23ab6dcf48e74fd83aa444163325/Product/30105/webp/1000",
+        "minimum-order": 1000,
+        "available-quantity": 100000,
+        "price": 3400
+    },
+    {
+        "_id": 3,
+        "name": "Z690 AORUS MASTER (rev. 1.x)",
+        "description": "GIGABYTE Z690 Motherboards feature the latest DDR5 architecture and XMP 3.0 capability. The new DDR5 memory technology brings 50% more bandwidth to the platform and increases the system performance drastically by implementing Unlocked Native DDR5 Voltage, Xtreme Memory Routing and reliable SMD slot. In addition to the hardware upgrades, the user friendly UI provides full functionality to overclock higher with exclusive DDR5 tuning capability. ",
+        "image": "https://static.gigabyte.com/StaticFile/Image/Global/29bcbc41832be51f4d1f14f6c434e9cc/Product/30055/webp/1000",
+        "minimum-order": 1000,
+        "available-quantity": 100000,
+        "price": 3200
+    },
+    {
+        "_id": 4,
+        "name": "Z690 AORUS PRO (rev. 1.x)",
+        "description": "GIGABYTE Z690 Motherboards feature the latest DDR5 architecture and XMP 3.0 capability. The new DDR5 memory technology brings 50% more bandwidth to the platform and increases the system performance drastically by implementing Unlocked Native DDR5 Voltage, Xtreme Memory Routing and reliable SMD slot. In addition to the hardware upgrades, the user friendly UI provides full functionality to overclock higher with exclusive DDR5 tuning capability.",
+        "image": "https://static.gigabyte.com/StaticFile/Image/Global/151941eb26b4384ac96acc15a6125b03/Product/30045/webp/1000",
+        "minimum-order": 1000,
+        "available-quantity": 100000,
+        "price": 2900
+    },
+    {
+        "_id": 5,
+        "name": "Z690 AORUS ULTRA (rev. 1.x)",
+        "description": "GIGABYTE Z690 Motherboards feature the latest DDR5 architecture and XMP 3.0 capability. The new DDR5 memory technology brings 50% more bandwidth to the platform and increases the system performance drastically by implementing Unlocked Native DDR5 Voltage, Xtreme Memory Routing and reliable SMD slot. In addition to the hardware upgrades, the user friendly UI provides full functionality to overclock higher with exclusive DDR5 tuning capability. ",
+        "image": "https://static.gigabyte.com/StaticFile/Image/Global/3dd84bb95e76cbcd4a67b05fb03f9e33/Product/30050/webp/1000",
+        "minimum-order": 1000,
+        "available-quantity": 100000,
+        "price": 2500
+    },
+    {
+        "_id": 6,
+        "name": "Z690I AORUS ULTRA LITE DDR4 (rev. 1.0)",
+        "description": "GIGABYTE Z690 Series Motherboards' Un-throttled performance is guaranteed by innovative and optimized thermal design to ensure the best CPU, Chipset, SSD stability and low temperatures under full load application and gaming.",
+        "image": "https://www.gigabyte.com/FileUpload/Global/KeyFeature/2143/innergigabyteimages/Extreme_Power_Design.jpg",
+        "minimum-order": 1000,
+        "available-quantity": 100000,
+        "price": 2900
+    }
+]
