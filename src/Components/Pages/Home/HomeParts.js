@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import PartsCard from './PartsCard';
+import PartsCard from '../Shared/PartsCard';
 
 const HomeParts = () => {
     const [products, setProducts] = useState([]);

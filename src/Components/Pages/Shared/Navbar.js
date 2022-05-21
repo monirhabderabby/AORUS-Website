@@ -5,7 +5,7 @@ import logo from "../../Assets/Logo/AORUS_LOGO.png";
 const Navbar = () => {
     return (
         <div className="lg:px-12">
-            <div className="navbar bg-transparent">
+            <div className="navbar bg-transparent h-12">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex="0" className="btn btn-ghost lg:hidden">

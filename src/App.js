@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Blogs from './Components/Pages/Blogs/Blogs';
@@ -5,8 +6,14 @@ import Home from './Components/Pages/Home/Home';
 import Login from './Components/Pages/Login/Login';
 import Parts from './Components/Pages/Parts/Parts';
 import Navbar from './Components/Pages/Shared/Navbar';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 function App() {
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
   return (
     <div className="App">
       <Navbar />

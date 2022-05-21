@@ -3,7 +3,7 @@ import React from "react";
 const PartsCard = ({product}) => {
     const {_id, name, description, image, minimumOrder, availableQuantity, price} = product;
     return (
-        <div class="card card-compact lg:max-w-lg bg-base-100 p-6 shadow-xl">
+        <div class="card card-compact lg:max-w-lg bg-base-100 p-6 shadow-xl" data-aos="fade-up-right" data-aos-duration='1000'>
             <figure>
                 <img className="h-48"
                     src={image}
