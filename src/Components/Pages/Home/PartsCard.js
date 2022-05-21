@@ -10,9 +10,11 @@ const PartsCard = ({product}) => {
                     alt="Shoes"
                 />
             </figure>
-            <div class="text-left gap-4">
+            <div class="text-left leading-8">
                 <h2 class="card-title">{name}</h2>
                 <p>{description.slice(0, 60)+"..."}</p>
+                <p>Availavle: {availableQuantity} pcs</p>
+                <p>Minimum Order: {minimumOrder} pcs</p>
                 <p className="text-2xl font-semibold">${price}</p>
                 <div className="card-actions">
                     <button className="btn btn-primary">Buy Now</button>
