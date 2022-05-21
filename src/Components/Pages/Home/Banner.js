@@ -5,8 +5,10 @@ const Banner = () => {
     return (
         <div style={{
             background: `url(${motherBoard})`,
-            backgroundSize: "cover",
-            objectFit: "contain"
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition:"center",
+            objectFit: "contain",
         }}>
             <div class="hero min-h-screen">
   <div class="hero-overlay bg-opacity-60"></div>
