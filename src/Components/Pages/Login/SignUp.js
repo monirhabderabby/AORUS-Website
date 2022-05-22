@@ -4,11 +4,16 @@ import { Link } from "react-router-dom";
 import google from '../../Assets/Logo/google.png'
 
 const Login = () => {
+
+    //React form hooks
     const {
         register,
         formState: { errors },
         handleSubmit,
     } = useForm();
+
+    //React firebase hooks
+    
 
     const onSubmit = (data) => {
         console.log(data);
@@ -16,8 +21,28 @@ const Login = () => {
     return (
         <div className="flex justify-center h-[90vh] items-center ">
             <div class="card lg:max-w-lg bg-base-100 shadow-xl p-4">
-                    <h1 className="text-3xl text-secondary font-bold">Login</h1>
+                    <h1 className="text-3xl text-secondary font-bold">SignUp</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
+                <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text">Full Name: </span>
+                        </label>
+                        <input
+                            type="text"
+                            class="input input-bordered w-full"
+                            {...register("name", {
+                                required: {
+                                    value: true,
+                                    message: "Name is required",
+                                }
+                            })}
+                        />
+                        <label class="">
+                            {errors.name?.type === "required" && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                            
+                        </label>
+                    </div>
+
                     <div class="form-control w-full">
                         <label class="label">
                             <span class="label-text">Email: </span>
@@ -36,7 +61,7 @@ const Login = () => {
                                 },
                             })}
                         />
-                        <label class="label">
+                        <label class="">
                             {errors.email?.type === "required" && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
                             {errors.email?.type === "pattern" && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
                         </label>
@@ -67,10 +92,10 @@ const Login = () => {
                     </div>
 
 
-                    <input type="submit" value="LOGIN" className="btn text-white w-full"/>
+                    <input type="submit" value="SIGNUP" className="btn text-white w-full"/>
                 </form>
                         <div className="py-2 text-sm">
-                            New to AORUS? <Link to="/signup" className="text-secondary font-bold">SignUp</Link>
+                            Already have an account ? <Link to="/login" className="text-secondary font-bold">Login</Link>
                         </div>
                 <div class="divider">OR</div>
                 <button class="btn btn-outline">
