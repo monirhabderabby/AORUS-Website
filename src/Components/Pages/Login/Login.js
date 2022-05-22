@@ -1,5 +1,5 @@
-import React from "react";
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import React, { useState } from "react";
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
@@ -16,13 +16,29 @@ const Login = () => {
 
     //React firebase hooks
     const [signInWithGoogle, GUser, GLoading, GError] = useSignInWithGoogle(auth);
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+
+      let signInError;
     
 
-    if(GLoading){
+    if(GLoading || loading){
         return <Loader></Loader>
     }
+
+    if(GError || error){
+        signInError = <p>{GError?.message || error?.message}</p>
+    }
+
+    if(GUser || user){
+        navigate('/')
+    }
     const onSubmit = async (data) => {
-       
+       await signInWithEmailAndPassword(data.email, data.password)
     }
     return (
         <div className="flex justify-center h-[90vh] items-center ">
@@ -80,6 +96,7 @@ const Login = () => {
 
                     <input type="submit" value="LOGIN" className="btn text-white w-full"/>
                 </form>
+                <span className="text-red-500">{signInError}</span>
                         <div className="py-2 text-sm">
                             New to AORUS? <Link to="/signup" className="text-secondary font-bold">SignUp</Link>
                         </div>

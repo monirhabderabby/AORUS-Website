@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import google from '../../Assets/Logo/google.png'
@@ -26,9 +26,15 @@ const Login = () => {
       ] = useCreateUserWithEmailAndPassword(auth);
       const [updateProfile, updating, UError] = useUpdateProfile(auth);
 
+      let signUpError;
+
 
     if(GLoading || loading || updating){
         return <Loader></Loader>
+    }
+
+    if(GError || error){
+        signUpError = <p>{GError?.message || error?.message}</p>
     }
     if(GUser || user){
         navigate('/')
@@ -116,6 +122,7 @@ const Login = () => {
 
                     <input type="submit" value="SIGNUP" className="btn text-white w-full"/>
                 </form>
+                <span className="text-red-500">{signUpError}</span>
                         <div className="py-2 text-sm">
                             Already have an account ? <Link to="/login" className="text-secondary font-bold">Login</Link>
                         </div>
