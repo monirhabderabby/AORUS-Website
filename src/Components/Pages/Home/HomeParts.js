@@ -7,7 +7,6 @@ const HomeParts = () => {
         fetch('parts.json')
         .then(res=> res.json())
         .then(data=> {
-            console.log(data)
             setProducts(data)
         })
     }, [])
