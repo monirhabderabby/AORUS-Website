@@ -1,12 +1,13 @@
 import React from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import google from '../../Assets/Logo/google.png'
 import Loader from "../Shared/Loader";
 
 const Login = () => {
+    const navigate = useNavigate();
     const {
         register,
         formState: { errors },
@@ -15,12 +16,13 @@ const Login = () => {
 
     //React firebase hooks
     const [signInWithGoogle, GUser, GLoading, GError] = useSignInWithGoogle(auth);
+    
 
     if(GLoading){
         return <Loader></Loader>
     }
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+       
     }
     return (
         <div className="flex justify-center h-[90vh] items-center ">

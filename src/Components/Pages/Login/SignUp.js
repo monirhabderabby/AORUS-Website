@@ -1,12 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import google from '../../Assets/Logo/google.png'
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from "../../../firebase.init";
 import Loader from "../Shared/Loader";
 
 const Login = () => {
+    const navigate = useNavigate();
 
     //React form hooks
     const {
@@ -17,15 +18,27 @@ const Login = () => {
 
     //React firebase hooks
     const [signInWithGoogle, GUser, GLoading, GError] = useSignInWithGoogle(auth);
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
+      const [updateProfile, updating, UError] = useUpdateProfile(auth);
 
 
-    if(GLoading){
+    if(GLoading || loading || updating){
         return <Loader></Loader>
+    }
+    if(GUser || user){
+        navigate('/')
     }
 
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async(data) => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({displayName: data.name})
+
     }
     return (
         <div className="flex justify-center h-[90vh] items-center ">
