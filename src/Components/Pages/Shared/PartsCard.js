@@ -3,15 +3,15 @@ import React from "react";
 const PartsCard = ({product}) => {
     const {_id, name, description, image, minimumOrder, availableQuantity, price} = product;
     return (
-        <div class="card card-compact lg:max-w-lg bg-base-100 p-6 shadow-xl" data-aos="fade-up-right" data-aos-duration='1000'>
+        <div className="card card-compact lg:max-w-lg bg-base-100 p-6 shadow-xl" data-aos="fade-up-right" data-aos-duration='1000'>
             <figure>
                 <img className="h-48"
                     src={image}
                     alt="Shoes"
                 />
             </figure>
-            <div class="text-left leading-8">
-                <h2 class="card-title">{name}</h2>
+            <div className="text-left leading-8">
+                <h2 className="card-title">{name}</h2>
                 <p>{description.slice(0, 60)+"..."}</p>
                 <p>Availavle: {availableQuantity} pcs</p>
                 <p>Minimum Order: {minimumOrder} pcs</p>

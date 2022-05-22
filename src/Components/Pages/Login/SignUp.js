@@ -2,6 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import google from '../../Assets/Logo/google.png'
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from "../../../firebase.init";
+import Loader from "../Shared/Loader";
 
 const Login = () => {
 
@@ -13,23 +16,29 @@ const Login = () => {
     } = useForm();
 
     //React firebase hooks
-    
+    const [signInWithGoogle, GUser, GLoading, GError] = useSignInWithGoogle(auth);
+
+
+    if(GLoading){
+        return <Loader></Loader>
+    }
+
 
     const onSubmit = (data) => {
         console.log(data);
     }
     return (
         <div className="flex justify-center h-[90vh] items-center ">
-            <div class="card lg:max-w-lg bg-base-100 shadow-xl p-4">
+            <div className="card lg:max-w-lg bg-base-100 shadow-xl p-4">
                     <h1 className="text-3xl text-secondary font-bold">SignUp</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text">Full Name: </span>
+                <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Full Name: </span>
                         </label>
                         <input
                             type="text"
-                            class="input input-bordered w-full"
+                            className="input input-bordered w-full"
                             {...register("name", {
                                 required: {
                                     value: true,
@@ -37,19 +46,19 @@ const Login = () => {
                                 }
                             })}
                         />
-                        <label class="">
-                            {errors.name?.type === "required" && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                        <label className="">
+                            {errors.name?.type === "required" && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
                             
                         </label>
                     </div>
 
-                    <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text">Email: </span>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Email: </span>
                         </label>
                         <input
                             type="email"
-                            class="input input-bordered w-full"
+                            className="input input-bordered w-full"
                             {...register("email", {
                                 required: {
                                     value: true,
@@ -61,18 +70,18 @@ const Login = () => {
                                 },
                             })}
                         />
-                        <label class="">
-                            {errors.email?.type === "required" && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
-                            {errors.email?.type === "pattern" && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
+                        <label className="">
+                            {errors.email?.type === "required" && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                            {errors.email?.type === "pattern" && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                         </label>
                     </div>
-                    <div class="form-control w-full">
-                        <label class="label">
-                            <span class="label-text">Password: </span>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Password: </span>
                         </label>
                         <input
                             type="password"
-                            class="input input-bordered w-full"
+                            className="input input-bordered w-full"
                             {...register("password", {
                                 required: {
                                     value: true,
@@ -85,9 +94,9 @@ const Login = () => {
                                 },
                             })}
                         />
-                        <label class="label">
-                            {errors.password?.type === "required" && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
-                            {errors.password?.type === "minLength" && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
+                        <label className="label">
+                            {errors.password?.type === "required" && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                            {errors.password?.type === "minLength" && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                         </label>
                     </div>
 
@@ -97,8 +106,8 @@ const Login = () => {
                         <div className="py-2 text-sm">
                             Already have an account ? <Link to="/login" className="text-secondary font-bold">Login</Link>
                         </div>
-                <div class="divider">OR</div>
-                <button class="btn btn-outline">
+                <div className="divider">OR</div>
+                <button className="btn btn-outline" onClick={()=> signInWithGoogle()}>
                     <img src={google} className="w-12 mx-2" alt="icon" />
                     Continue with Google
                     </button>
