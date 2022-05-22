@@ -1,8 +1,21 @@
+import { signOut } from "firebase/auth";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
 import logo from "../../Assets/Logo/AORUS_LOGO.png";
 
 const Navbar = () => {
+    const navigate = useNavigate()
+
+    //React firebase hooks
+    const [user] = useAuthState(auth);
+    
+    //All function
+    const handleLogout = async () => {
+        await signOut(auth);
+        navigate('/')
+    }
     return (
         <div className="lg:px-12">
             <div className="navbar bg-transparent h-12">
@@ -37,9 +50,12 @@ const Navbar = () => {
                             <li>
                                 <Link to="/blogs">Blogs</Link>
                             </li>
-                            <li>
-                                <Link to="/login">Login</Link>
-                            </li>
+                            {
+                                user ? 
+                                    <li><Link to="" onClick={handleLogout}>SignOut</Link> </li>
+                                :
+                                <li><Link to="/login">Login</Link></li>
+                            }
                         </ul>
                     </div>
                     <div>
@@ -57,9 +73,12 @@ const Navbar = () => {
                         <li>
                             <Link to="/blogs">Blogs</Link>
                         </li>
-                        <li>
-                            <Link to="/login">Login</Link>
-                        </li>
+                        {
+                                user ? 
+                                    <li><Link to="" onClick={handleLogout}>SignOut</Link> </li>
+                                :
+                                <li><Link to="/login">Login</Link></li>
+                            }
                     </ul>
                 </div>
             </div>
