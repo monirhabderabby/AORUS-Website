@@ -4,7 +4,12 @@ import PartsCard from '../Shared/PartsCard';
 const HomeParts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('parts.json')
+        fetch('http://localhost:5000/parts', {
+            method: "GET",
+            headers: {
+                "authorization": `Bearer ${localStorage.getItem("accessToken")}`
+            }
+        })
         .then(res=> res.json())
         .then(data=> {
             setProducts(data)

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import google from '../../Assets/Logo/google.png'
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from "../../../firebase.init";
@@ -9,6 +9,7 @@ import useToken from "../../Hooks/useToken";
 
 const Login = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     //React form hooks
     const {
@@ -28,9 +29,9 @@ const Login = () => {
       const [updateProfile, updating, UError] = useUpdateProfile(auth);
 
       const [token] = useToken(GUser || user)
-      console.log(token);
 
       let signUpError;
+      let from = location.state?.from?.pathname || "/";
 
 
     if(GLoading || loading || updating){
@@ -41,7 +42,7 @@ const Login = () => {
         signUpError = <p>{GError?.message || error?.message}</p>
     }
     if(token){
-        navigate('/')
+        navigate(from, { replace: true });
     }
     
 
@@ -49,12 +50,6 @@ const Login = () => {
     const onSubmit = async(data) => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({displayName: data.name})
-
-        // const user = {
-        //     name: data.name,
-        //     email: data.email,
-        //     password: data.password,
-        // }
         
 
     }

@@ -14,6 +14,7 @@ const Navbar = () => {
     //All function
     const handleLogout = async () => {
         await signOut(auth);
+        localStorage.removeItem("accessToken");
         navigate('/')
     }
     return (
@@ -74,11 +75,17 @@ const Navbar = () => {
                             <Link to="/blogs">Blogs</Link>
                         </li>
                         {
+                            user && <li>
+                                <Link to="/dashboard">Dashboard</Link>
+                            </li>
+                        }
+                        {
                                 user ? 
                                     <li><Link to="" onClick={handleLogout}>SignOut</Link> </li>
                                 :
                                 <li><Link to="/login">Login</Link></li>
-                            }
+                        }
+                        
                     </ul>
                 </div>
             </div>
