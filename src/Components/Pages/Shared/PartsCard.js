@@ -2,18 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PartsCard = ({product}) => {
-    const {_id, name, description, image, minimumOrder, availableQuantity, price} = product;
+    const {_id, name, description, image, img, minimumOrder, availableQuantity, price} = product;
     return (
         <div className="card card-compact lg:max-w-lg bg-base-100 p-6 shadow-xl" data-aos="fade-up-right" data-aos-duration='1000'>
             <figure>
                 <img className="h-48"
-                    src={image}
-                    alt="Shoes"
+                    src={image? image : img}
+                    alt=""
                 />
             </figure>
             <div className="text-left leading-8">
                 <h2 className="card-title">{name}</h2>
-                <p>{description.slice(0, 60)+"..."}</p>
+                <p>{description?.slice(0, 60)+"..."}</p>
                 <p>Availavle: {availableQuantity} pcs</p>
                 <p>Minimum Order: {minimumOrder} pcs</p>
                 <p className="text-2xl font-semibold">${price}</p>
