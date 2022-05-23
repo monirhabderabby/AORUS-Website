@@ -69,6 +69,7 @@ const AllUser = () => {
                             </tr>)
                         }
                     </tbody>
+                    
                 </table>
             </div>
         </div>
