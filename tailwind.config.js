@@ -8,7 +8,7 @@ module.exports = {
     themes: [
       {
         aorusTheme: {
-          primary: "#2155CD",
+          primary: "#0D0F66",
           secondary: "#242F9B",
           accent: "#3A4256",
           neutral: "#3d4451",

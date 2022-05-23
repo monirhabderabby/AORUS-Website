@@ -10,7 +10,7 @@ const Banner = () => {
             backgroundPosition:"center",
             objectFit: "contain",
         }}>
-            <div className="hero min-h-screen">
+            <div className="hero min-h-screen ">
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="md:max-w-md lg:max-w-lg">

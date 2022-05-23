@@ -33,13 +33,19 @@ const Dashboard = () => {
                     )}
                     {admin && (
                         <>
-                        <li>
-                                <Link to="/dashboard/allorders">All Orders</Link>
+                            <li>
+                                <Link to="/dashboard/allorders">
+                                    All Orders
+                                </Link>
                             </li>
                             <li>
-                                <Link to="/dashboard/alluser">Manage Admin</Link>
+                                <Link to="/dashboard/alluser">
+                                    Manage Admin
+                                </Link>
                             </li>
-                            
+                            <li>
+                                <Link to="/dashboard/addproduct">Add new Product</Link>
+                            </li>
                         </>
                     )}
                 </ul>

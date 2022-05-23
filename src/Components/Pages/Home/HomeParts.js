@@ -4,12 +4,7 @@ import PartsCard from '../Shared/PartsCard';
 const HomeParts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/parts', {
-            method: "GET",
-            headers: {
-                "authorization": `Bearer ${localStorage.getItem("accessToken")}`
-            }
-        })
+        fetch('http://localhost:5000/parts')
         .then(res=> res.json())
         .then(data=> {
             setProducts(data)
@@ -17,9 +12,9 @@ const HomeParts = () => {
     }, [])
     return (
         <div className='px-6 py-24 lg:px-12'>
-            <h1 className='text-accent text-5xl font-bold px-4 my-12 border-x-8 rounded border-secondary inline-block'>Populer Parts</h1>
+            <h1 className='text-accent text-3xl lg:text-5xl font-bold px-4 my-12 border-x-8 rounded border-secondary inline-block'>Leatest Products</h1>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
             {
                 products?.map(product=> <PartsCard product={product} key={product._id}></PartsCard>)
             }
