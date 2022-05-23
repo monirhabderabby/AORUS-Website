@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 import Loader from "../Shared/Loader";
 
 const AllUser = () => {
@@ -11,6 +12,25 @@ const AllUser = () => {
             }
         }).then((res) => res.json())
     );
+
+    const makeAdmin = email => {
+        fetch(`http://localhost:5000/user/admin/${email}`,{
+            method: 'PUT',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem("accessToken")}`
+            }
+        }).then(res=> {
+            if(res.status === 403){
+                toast.error("Forbidden Access")
+            }
+            return res.json();
+        }).then(data=> {
+            if(data.modifiedCount > 0){
+                toast.success("successfully make an admin!")
+                refetch();
+            }
+        })
+    }
 
     if(isLoading){
         return <Loader></Loader>
@@ -34,12 +54,17 @@ const AllUser = () => {
                     </thead>
                     <tbody>
                         {
-                            users?.map((user, index)=> <tr key={user._id}>
+                            users.map((user, index)=> <tr key={user._id}>
                                 <th>{index+1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <button className="btn btn-xs btn-accent">Make admin</button>
+                                    {
+                                        user.role !== "admin" && <button className="btn btn-xs btn-accent" onClick={()=>makeAdmin(user.email)}>Make admin</button>
+                                    }
+                                    {
+                                        user.role === "admin" && <span class="badge">{user.role}</span>
+                                    }
                                 </td>
                             </tr>)
                         }

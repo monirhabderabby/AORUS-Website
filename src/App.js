@@ -13,6 +13,8 @@ import Dashboard from './Components/Pages/Dashboard/Dashboard';
 import AllUser from './Components/Pages/Dashboard/AllUser';
 import Profile from './Components/Pages/Dashboard/Profile';
 import RequireAuth from './Components/Pages/Login/RequireAuth';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -37,6 +39,7 @@ function App() {
           <Route path="alluser" element={<AllUser></AllUser>}></Route>
         </Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }
