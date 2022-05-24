@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 
 const CheckOutForm = ({order}) => {
     const [cardError, setCardError] = useState("");
-    const [paymentSucces, setPaymentSuccess] = useState('')
+    const [paymentSucces, setPaymentSuccess] = useState('');
+    const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const stripe = useStripe();
     const elements = useElements();
-    const {price} = order;
+    const {price, _id} = order;
 
 
     useEffect(()=> {
@@ -67,7 +68,17 @@ const CheckOutForm = ({order}) => {
         }
         else{
             setCardError('')
+            await setTransactionId(paymentIntent.id)
             setPaymentSuccess("Your payment is completed!")
+            fetch(`http://localhost:5000/order/paid/${_id}`, {
+                method: "PUT",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({transactionId})
+            })
+            .then(res=> res.json())
+            .then(data=> console.log(data))
         }
     };
     return (
