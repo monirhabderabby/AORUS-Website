@@ -6,7 +6,12 @@ import Loader from "../Shared/Loader";
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
-    const {data:products, isLoading}= useQuery("userOrders", ()=> fetch(`http://localhost:5000/orders/${user?.email}`).then(res=> res.json()))
+    const {data:products, isLoading}= useQuery("userOrders", ()=> fetch(`http://localhost:5000/orders/${user?.email}`, {
+        method: "GET",
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        }
+    }).then(res=> res.json()))
 
     if(isLoading){
         return <Loader></Loader>
