@@ -1,11 +1,13 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 
-const CheckOutForm = ({price}) => {
+const CheckOutForm = ({order}) => {
     const [cardError, setCardError] = useState("");
+    const [paymentSucces, setPaymentSuccess] = useState('')
     const [clientSecret, setClientSecret] = useState('');
     const stripe = useStripe();
     const elements = useElements();
+    const {price} = order;
 
 
     useEffect(()=> {
@@ -45,6 +47,28 @@ const CheckOutForm = ({price}) => {
         } else {
             setCardError("");
         }
+
+        setPaymentSuccess('')
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: order?.name,
+                        email: order?.email
+                    },
+                },
+            },
+        );
+
+        if(intentError){
+            setCardError(intentError?.message)
+        }
+        else{
+            setCardError('')
+            setPaymentSuccess("Your payment is completed!")
+        }
     };
     return (
         <section>
@@ -71,6 +95,9 @@ const CheckOutForm = ({price}) => {
             </form>
             {
                 cardError && <p className="text-red-500">{cardError}</p>
+            }
+            {
+                paymentSucces && <p className="text-green-500">{paymentSucces}</p>
             }
         </section>
     );
