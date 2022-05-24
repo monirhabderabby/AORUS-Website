@@ -20,6 +20,7 @@ import MyOrders from './Components/Pages/Dashboard/MyOrders';
 import AllOrders from './Components/Pages/Dashboard/AllOrders';
 import Purchase from './Components/Pages/Parts/Purchase';
 import AddProduct from './Components/Pages/Dashboard/AddProduct';
+import Payment from './Components/Pages/Dashboard/Payment';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="myorder" element={<MyOrders />}></Route>
           <Route path="addreview" element={<AddReview />}></Route>
           <Route path="addproduct" element={<AddProduct />}></Route>
+          <Route path="payment/:id" element={<Payment />}></Route>
         </Route>
       </Routes>
       <ToastContainer />

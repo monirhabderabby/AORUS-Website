@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Loader from "../Shared/Loader";
 
@@ -24,7 +25,7 @@ const MyOrders = () => {
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
-                        <tr>
+                        <tr className="text-center">
                             <th>S/L</th>
                             <th>Image</th>
                             <th>Product</th>
@@ -34,11 +35,11 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            products?.map((product, index)=> <tr>
+                            products?.map((product, index)=> <tr className="text-center">
                                 <td>{index+1}</td>
-                                <td><img src={product.img} className="w-20" alt="" /></td>
+                                <td><img src={product.img} className="w-16" alt="" /></td>
                                 <td>{product.productName}</td>
-                                <td>{product.paid ? <button className="btn btn-xs btn-success" disabled>Paid</button> : <button className="btn btn-xs btn-primary text-white">Pay</button>}</td>
+                                <td>{product.paid ? <button className="btn btn-xs btn-success" disabled>Paid</button> : <Link to={`/dashboard/payment/${product._id}`}><button className="btn btn-xs btn-primary text-white">Pay</button></Link>}</td>
                                 <td>{!product.paid && <button className="btn btn-xs btn-error text-white">Cancel</button>}</td>
                             </tr>)
                         }
