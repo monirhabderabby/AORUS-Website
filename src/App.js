@@ -21,6 +21,7 @@ import AllOrders from './Components/Pages/Dashboard/AllOrders';
 import Purchase from './Components/Pages/Parts/Purchase';
 import AddProduct from './Components/Pages/Dashboard/AddProduct';
 import Payment from './Components/Pages/Dashboard/Payment';
+import NoFoundPage from './Components/Pages/NoFoundPage/NoFoundPage';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
           <Route path="addproduct" element={<AddProduct />}></Route>
           <Route path="payment/:id" element={<Payment />}></Route>
         </Route>
+        <Route path="*" element={<NoFoundPage />}></Route>
       </Routes>
       <ToastContainer />
     </div>
