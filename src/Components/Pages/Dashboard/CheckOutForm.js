@@ -30,7 +30,7 @@ const CheckOutForm = () => {
     };
     return (
         <section>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="text-left">
                 <CardElement
                     options={{
                         style: {
@@ -47,7 +47,7 @@ const CheckOutForm = () => {
                         },
                     }}
                 />
-                <button type="submit" disabled={!stripe}>
+                <button type="submit" className="btn btn-sm btn-secondary text-white mt-6" disabled={!stripe || !elements}>
                     Pay
                 </button>
             </form>
