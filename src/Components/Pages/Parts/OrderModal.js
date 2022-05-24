@@ -17,11 +17,12 @@ const OrderModal = ({product, setOrder}) => {
         const orderQuantity = e.target.orderQuantity.value;
         const minimumOrder = product?.minimumOrder;
         const availableQuantity = product?.availableQuantity;
+        const img = product?.img
         const price = product?.price;
 
         //create an order formet
         const order = {
-            name, email, pickupLocation, productName, orderQuantity, paid: false, price, _id: product?._id
+            name, email, pickupLocation, productName, orderQuantity, paid: false, price,img
         }
 
         if(parseInt(orderQuantity) < parseInt(minimumOrder)){
@@ -30,6 +31,7 @@ const OrderModal = ({product, setOrder}) => {
         else if(parseInt(orderQuantity) > parseInt(availableQuantity)){
             toast.error(`Sorry! We have only ${availableQuantity} pcs`)
         }
+        console.log(order);
 
         if(parseInt (orderQuantity) > parseInt(minimumOrder) && parseInt(orderQuantity) < parseInt(availableQuantity)){
             fetch('http://localhost:5000/order', {
@@ -38,12 +40,9 @@ const OrderModal = ({product, setOrder}) => {
                     "content-type": "application/json",
                     "authorization": `Bearer ${localStorage.getItem("accessToken")}`
                 },
-                body: JSON.stringify(order)
+                body:JSON.stringify(order)
             })
             .then(res=> {
-                if(res.status === 401 || res.status === 403){
-                    toast.error("failed to place an order!")
-                }
                 return res.json();
             })
             .then(data=> {
