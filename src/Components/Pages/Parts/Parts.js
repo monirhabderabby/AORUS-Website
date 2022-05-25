@@ -7,7 +7,7 @@ import PartsBanner from './PartsBanner';
 
 
 const Parts = () => {
-    const {data:products, isLoading} = useQuery("allProducts", ()=> fetch('http://localhost:5000/parts').then(res=> res.json()))
+    const {data:products, isLoading} = useQuery("allProducts", ()=> fetch('https://whispering-plains-56325.herokuapp.com/parts').then(res=> res.json()))
     if(isLoading){
         return <Loader></Loader>
     }

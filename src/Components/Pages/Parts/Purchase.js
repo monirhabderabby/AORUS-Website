@@ -8,7 +8,7 @@ const Purchase = () => {
     const { id } = useParams();
     const [order, setOrder]= useState({});
     const { data: product, isLoading } = useQuery("product", () =>
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://whispering-plains-56325.herokuapp.com/product/${id}`, {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

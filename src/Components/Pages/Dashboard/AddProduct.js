@@ -14,7 +14,7 @@ const AddProduct = () => {
         const newProduct = {name,img,minimumOrder,availableQuantity,description, price};
         console.log(newProduct);
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://whispering-plains-56325.herokuapp.com/product', {
             method: "POST",
             headers: {
                 "content-type": "application/json",

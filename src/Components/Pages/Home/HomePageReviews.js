@@ -4,7 +4,7 @@ import ReviewCard from '../Shared/ReviewCard';
 const HomePageReviews = () => {
     const [reviews, setReviews] = useState([])
     useEffect( () => {
-        fetch('http://localhost:5000/review', {
+        fetch('https://whispering-plains-56325.herokuapp.com/review', {
             method: "GET",
             headers: {
                 'authorization': `Bearer ${localStorage.getItem("accessToken")}`

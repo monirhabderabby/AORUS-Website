@@ -9,7 +9,7 @@ const Profile = () => {
     const [user] = useAuthState(auth);
     const [openModal, setOpenModal]= useState(false);
 
-    const {data: dbuser, isLoading, refetch}= useQuery(['user', user?.email] , ()=> fetch(`http://localhost:5000/user/${user?.email}`).then(res=> res.json()))
+    const {data: dbuser, isLoading, refetch}= useQuery(['user', user?.email] , ()=> fetch(`https://whispering-plains-56325.herokuapp.com/user/${user?.email}`).then(res=> res.json()))
 
     if(dbuser){
         console.log(dbuser);

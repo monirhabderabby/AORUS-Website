@@ -34,7 +34,7 @@ const OrderModal = ({product, setOrder}) => {
         console.log(order);
 
         if(parseInt (orderQuantity) > parseInt(minimumOrder) && parseInt(orderQuantity) < parseInt(availableQuantity)){
-            fetch('http://localhost:5000/order', {
+            fetch('https://whispering-plains-56325.herokuapp.com/order', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",

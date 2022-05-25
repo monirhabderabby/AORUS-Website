@@ -15,7 +15,7 @@ const CheckOutForm = ({order}) => {
 
 
     useEffect(()=> {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://whispering-plains-56325.herokuapp.com/create-payment-intent', {
             method:"POST",
             headers: {
                 "content-type": "application/json"
@@ -73,7 +73,7 @@ const CheckOutForm = ({order}) => {
             setCardError('')
             setPaymentSuccess("Your payment is completed!")
             await setTransactionId(paymentIntent.id)
-            fetch(`http://localhost:5000/order/paid/${_id}`, {
+            fetch(`https://whispering-plains-56325.herokuapp.com/order/paid/${_id}`, {
                 method: "PUT",
                 headers: {
                     'content-type': 'application/json'

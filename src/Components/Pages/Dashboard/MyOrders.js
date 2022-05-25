@@ -10,7 +10,7 @@ const MyOrders = () => {
     const [openModal, setOpenModal] = useState(false);
     const [orderId, setOrderId] = useState("")
     const [user] = useAuthState(auth);
-    const {data:products, isLoading, refetch}= useQuery("userOrders", ()=> fetch(`http://localhost:5000/orders/${user?.email}`, {
+    const {data:products, isLoading, refetch}= useQuery("userOrders", ()=> fetch(`https://whispering-plains-56325.herokuapp.com/orders/${user?.email}`, {
         method: "GET",
         headers: {
             'authorization': `Bearer ${localStorage.getItem("accessToken")}`

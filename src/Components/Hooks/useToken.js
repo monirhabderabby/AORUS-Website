@@ -9,7 +9,7 @@ const useToken = user =>{
 
     useEffect(() => {
         if(user){
-            fetch('http://localhost:5000/user', {
+            fetch('https://whispering-plains-56325.herokuapp.com/user', {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

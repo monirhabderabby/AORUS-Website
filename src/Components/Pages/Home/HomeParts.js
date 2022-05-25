@@ -4,7 +4,7 @@ import PartsCard from '../Shared/PartsCard';
 const HomeParts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/parts')
+        fetch('https://whispering-plains-56325.herokuapp.com/parts')
         .then(res=> res.json())
         .then(data=> {
             setProducts(data)

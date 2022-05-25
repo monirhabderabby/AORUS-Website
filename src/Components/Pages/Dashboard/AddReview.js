@@ -9,7 +9,7 @@ const AddReview = () => {
     const [user] = useAuthState(auth);
 
     //load user
-    const {data, isLoading} = useQuery('user', ()=> fetch(`http://localhost:5000/user/${user?.email}`, {
+    const {data, isLoading} = useQuery('user', ()=> fetch(`https://whispering-plains-56325.herokuapp.com/user/${user?.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem("accessToken")}`
@@ -31,7 +31,7 @@ const AddReview = () => {
             rating,
             feedback
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://whispering-plains-56325.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

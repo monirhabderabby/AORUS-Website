@@ -4,7 +4,7 @@ import Loader from '../Shared/Loader';
 
 const AllOrders = () => {
     const [shipping, setShipping] = useState(false);
-    const {data, isLoading} = useQuery('allorders', ()=> fetch(`http://localhost:5000/allorders`, {
+    const {data, isLoading} = useQuery('allorders', ()=> fetch(`https://whispering-plains-56325.herokuapp.com/allorders`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
