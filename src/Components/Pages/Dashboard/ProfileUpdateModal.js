@@ -2,7 +2,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 
-const ProfileUpdateModal = ({setOpenModal}) => {
+const ProfileUpdateModal = ({setOpenModal, refetch}) => {
     const [user] = useAuthState(auth);
     const handleProfile = (e) => {
         e.preventDefault();
@@ -23,7 +23,9 @@ const ProfileUpdateModal = ({setOpenModal}) => {
             .then((res) => res.json())
             .then((data) => {
                 if(data.acknowledged){
+                    refetch()
                     setOpenModal(false)
+                
                 }
             });
     };
