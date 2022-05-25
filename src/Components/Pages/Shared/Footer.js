@@ -3,7 +3,7 @@ import logo from '../../Assets/Logo/AORUS_LOGO.png'
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content">
+        <footer className="footer p-10 bg-base-200 text-base-content mt-12">
   <div>
     <img src={logo} className="w-24" alt="logo" />
     <p>AORUS WORLD Ltd.</p>
