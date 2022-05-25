@@ -1,11 +1,14 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CheckOutForm = ({order}) => {
     const [cardError, setCardError] = useState("");
     const [paymentSucces, setPaymentSuccess] = useState('');
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
+    const navigate = useNavigate()
     const stripe = useStripe();
     const elements = useElements();
     const {price, _id} = order;
@@ -68,8 +71,8 @@ const CheckOutForm = ({order}) => {
         }
         else{
             setCardError('')
-            await setTransactionId(paymentIntent.id)
             setPaymentSuccess("Your payment is completed!")
+            await setTransactionId(paymentIntent.id)
             fetch(`http://localhost:5000/order/paid/${_id}`, {
                 method: "PUT",
                 headers: {
@@ -78,7 +81,12 @@ const CheckOutForm = ({order}) => {
                 body: JSON.stringify({transactionId})
             })
             .then(res=> res.json())
-            .then(data=> console.log(data))
+            .then(data=> {
+                if(data.acknowledged){
+                    toast.success("Your payment is Confirmed!")
+                    navigate('/dashboard/myorder')
+                }
+            })
         }
     };
     return (
