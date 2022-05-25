@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loader from '../Shared/Loader';
 
 const AllOrders = () => {
+    const [shipping, setShipping] = useState(false);
     const {data, isLoading} = useQuery('allorders', ()=> fetch(`http://localhost:5000/allorders`, {
         method: 'GET',
         headers: {
@@ -43,7 +44,7 @@ const AllOrders = () => {
                                     order.paid? <span class="badge text-white">paid</span> : <span class="badge">unpaid</span>
                                 }
                             </td>
-                            <td><button className='btn btn-sm bg-red-500 outline-none text-white'>Decline order</button></td>
+                            <td>{shipping ? <button className='btn btn-sm bg-green-500 outline-none text-white' disabled={shipping}>Shipping</button> : <button className='btn btn-sm bg-red-500 outline-none text-white' onClick={()=> setShipping(true)}>Ship Now</button>}</td>
                         </tr>)
                         }
                     </tbody>
