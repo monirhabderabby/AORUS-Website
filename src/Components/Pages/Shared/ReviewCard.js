@@ -1,7 +1,7 @@
 import React from "react";
 
 const ReviewCard = ({ review }) => {
-    const { name, email, feedback, image } = review;
+    const { name, feedback, img, rating } = review;
     return (
         <div>
             <div className="card lg:max-w-lg bg-base-100 shadow-xl">
@@ -9,19 +9,15 @@ const ReviewCard = ({ review }) => {
                     <h2 className="card-title">
                         <div className="avatar online">
                             <div className="w-8 rounded-full">
-                                <img src={image} alt="photo" />
+                                <img src={img} alt="photo" />
                             </div>
                         </div>
                         <div className="text-left leading-3">
                             <p className="text-sm font-semibold">{name}</p>
                             <div>
-                            <div className="rating">
-  <input type="radio" name="rating-2" className="mask mask-star-2 w-4 bg-green-400" />
-  <input type="radio" name="rating-2" className="mask mask-star-2 w-4 bg-green-400" checked />
-  <input type="radio" name="rating-2" className="mask mask-star-2 w-4 bg-green-400" />
-  <input type="radio" name="rating-2" className="mask mask-star-2 w-4 bg-green-400" />
-  <input type="radio" name="rating-2" className="mask mask-star-2 w-4 bg-green-400" />
-</div>
+                                <div className="rating">
+                                    <small className="font-semibold">Rating: <span>5/{rating}</span></small>
+                                </div>
                             </div>
                         </div>
                     </h2>
