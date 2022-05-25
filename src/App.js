@@ -41,7 +41,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />}  />
-        <Route path="/purchase/:id" element={<Purchase />}  />
+        <Route path="/purchase/:id" element={<RequireAuth><Purchase /></RequireAuth>}  />
         <Route path="/dashboard" element={<Dashboard />}>
           <Route index element={<Profile></Profile>}></Route>
           <Route path="alluser" element={<AllUser />}></Route>
