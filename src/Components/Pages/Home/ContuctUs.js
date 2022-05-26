@@ -6,7 +6,7 @@ const ContuctUs = () => {
         <div style={{
             background: `url(${contactBG})`,
             backgroundRepeat: "no-repeat",
-            backgroundSize: "contain"
+            backgroundSize: "cover"
         }} className="py-12 my-24 flex justify-center">
             <div class="card w-96 bg-base-100 shadow-xl">
   <div class="card-body">
