@@ -10,7 +10,7 @@ const AllOrders = () => {
         }
     }).then(res=> res.json()))
     const handleShipping = id => {
-        fetch(`http://localhost:5000/shipping/${id}`, {
+        fetch(`https://whispering-plains-56325.herokuapp.com/shipping/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
