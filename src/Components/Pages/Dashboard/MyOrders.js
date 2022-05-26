@@ -46,12 +46,12 @@ const MyOrders = () => {
                         {
                             products?.map((product, index)=> <tr className="text-center">
                                 <td>{index+1}</td>
-                                <td><img src={product.img} className="w-16" alt="" /></td>
-                                <td>{product.productName}</td>
+                                <td><img src={product.img} className="w-8 md:w-16 lg:w-16" alt="" /></td>
+                                <td className="text-sm md:text-lg lg:text-lg">{product.productName}</td>
                                 <td>{product.paid ? 
                                 <div className="flex flex-col">
                                     <button className="btn btn-xs btn-success" disabled>Paid</button>
-                                    <small>transactionId</small>
+                                    <small>{product?.transactionId?.transactionId}</small>
                                 </div> 
                                 
                                 : 
