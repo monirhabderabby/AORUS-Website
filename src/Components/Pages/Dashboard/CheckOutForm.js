@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const CheckOutForm = ({order}) => {
     const [cardError, setCardError] = useState("");
     const [paymentSucces, setPaymentSuccess] = useState('');
-    const [transactionId, setTransactionId] = useState('');
+    // const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const navigate = useNavigate()
     const stripe = useStripe();
@@ -72,13 +72,12 @@ const CheckOutForm = ({order}) => {
         else{
             setCardError('')
             setPaymentSuccess("Your payment is completed!")
-            await setTransactionId(paymentIntent.id)
             fetch(`https://whispering-plains-56325.herokuapp.com/order/paid/${_id}`, {
                 method: "PUT",
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify({transactionId})
+                body: JSON.stringify({transactionId: paymentIntent.id})
             })
             .then(res=> res.json())
             .then(data=> {
