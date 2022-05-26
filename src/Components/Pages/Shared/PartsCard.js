@@ -11,7 +11,7 @@ const PartsCard = ({product}) => {
     const {_id, name, description, img, minimumOrder, availableQuantity, price} = product;
     
     return (
-        <div className="card card-compact lg:max-w-lg bg-base-100 p-6 shadow-xl" data-aos="fade-up-right" data-aos-duration='1000'>
+        <div className="card card-compact lg:max-w-lg bg-base-100 p-6 shadow-xl" data-aos="zoom-out" data-aos-duration='1000'>
             <figure>
                 <img className="h-48"
                     src={img}
