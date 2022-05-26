@@ -22,6 +22,7 @@ import Purchase from './Components/Pages/Parts/Purchase';
 import AddProduct from './Components/Pages/Dashboard/AddProduct';
 import Payment from './Components/Pages/Dashboard/Payment';
 import NoFoundPage from './Components/Pages/NoFoundPage/NoFoundPage';
+import MyPortfolio from './Components/Pages/MyPortfolio/MyPortfolio';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
           </RequireAuth>
         } />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/myportfolio" element={<MyPortfolio />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />}  />
         <Route path="/purchase/:id" element={<RequireAuth><Purchase /></RequireAuth>}  />
