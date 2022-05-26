@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -31,7 +31,6 @@ const OrderModal = ({product, setOrder}) => {
         else if(parseInt(orderQuantity) > parseInt(availableQuantity)){
             toast.error(`Sorry! We have only ${availableQuantity} pcs`)
         }
-        console.log(order);
 
         if(parseInt (orderQuantity) > parseInt(minimumOrder) && parseInt(orderQuantity) < parseInt(availableQuantity)){
             fetch('https://whispering-plains-56325.herokuapp.com/order', {
