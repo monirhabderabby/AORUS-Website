@@ -68,7 +68,7 @@ const Navbar = () => {
                             {
                                 user ? 
                                     <li>
-                                        <div class="dropdown dropdown-hover sm:dropdown-right md:dropdown-right dropdown-left "><img src={dbuser?.img} className="w-8 rounded-full" alt="" />
+                                        <div class="dropdown sm:dropdown-right md:dropdown-right dropdown-right "><img src={dbuser?.img} className="w-8 rounded-full" alt="" />
   <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
     <li> <Link to="/dashboard">Profile</Link> </li>
     <li><button onClick={handleLogout}>SignOut</button></li>
