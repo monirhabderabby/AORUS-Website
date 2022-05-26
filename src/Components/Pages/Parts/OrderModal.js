@@ -6,7 +6,7 @@ import auth from "../../../firebase.init";
 import Loader from "../Shared/Loader";
 
 const OrderModal = ({product, setOrder}) => {
-    const [orderbutton, setOrderButton] = useState(false)
+    const [orderbutton, setOrderButton] = useState(true)
     const navigate = useNavigate()
     const [user, loading]= useAuthState(auth)
     const handlePlaceOrder = e=> {
@@ -57,15 +57,6 @@ const OrderModal = ({product, setOrder}) => {
 
     }
 
-    const handleQuantity = e => {
-        const order = e.target.value;
-        const minimum = product?.minimumOrder;
-        const maximum = product?.availableQuantity;
-        if(order > parseInt(minimum) && order < parseInt(maximum)){
-            setOrderButton(true);
-        }
-    }
-
     if(loading){
         return <Loader></Loader>
     }
@@ -81,8 +72,8 @@ const OrderModal = ({product, setOrder}) => {
                     <input type="text" name="email" value={user?.email} className="input input-bordered w-full my-3" readOnly />
                     <input type="text" name="location" placeholder="Enter your pickup location" className="input input-bordered w-full my-3"  />
                     <input type="text" name="productName" value={product?.name} className="input input-bordered w-full mb-3" readOnly />
-                    <input type="number" name="orderQuantity" onChange={handleQuantity}  placeholder={`Minimum order ${product?.minimumOrder}`} className="input input-bordered w-full mb-3" />
-                    <input type="submit" value="Place Order" disabled={!orderbutton} className="btn btn-primary w-full" />
+                    <input type="number" name="orderQuantity"  placeholder={`Minimum order ${product?.minimumOrder}`} className="input input-bordered w-full mb-3" />
+                    <input type="submit" value="Place Order" className="btn btn-primary w-full" />
                     </form>
                 </div>
             </div>
