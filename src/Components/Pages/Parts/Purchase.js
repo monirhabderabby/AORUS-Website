@@ -1,12 +1,17 @@
 import { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+import auth from "../../../firebase.init";
+import useAdmin from "../../Hooks/useAdmin";
 import Loader from "../Shared/Loader";
 import OrderModal from "./OrderModal";
 
 const Purchase = () => {
     const { id } = useParams();
     const [order, setOrder]= useState({});
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
     const { data: product, isLoading } = useQuery("product", () =>
         fetch(`https://whispering-plains-56325.herokuapp.com/product/${id}`, {
             method: "GET",
@@ -35,7 +40,9 @@ const Purchase = () => {
                             <p className="py-3">{product?.description}</p>
                             <p><span className="font-semibold">Available Now: </span>{product?.availableQuantity}</p>
                             <p className="py-2"><span className="font-semibold">Price: </span>{product?.price}$</p>
-                            <label for="my-modal-6" className="btn btn-primary text-white mt-3 modal-button" onClick={()=>setOrder(product)}>Order Now</label>
+                            {
+                                !admin && <label for="my-modal-6" className="btn btn-primary text-white mt-3 modal-button" onClick={()=>setOrder(product)}>Order Now</label>
+                            }
                         </section>
                     </div>
                 </div>
