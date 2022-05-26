@@ -26,9 +26,9 @@ const Payment = () => {
     }
     return (
         <div className="flex flex-col justify-center h-[80vh] items-center gap-8 ">
-            <div class="card lg:max-w-lg bg-base-100 shadow-xl">
-                <div class="p-6 text-left">
-                    <h2 class="card-title text-secondary">
+            <div className="card lg:max-w-lg bg-base-100 shadow-xl">
+                <div className="p-6 text-left">
+                    <h2 className="card-title text-secondary">
                         Hello, {order?.name}
                     </h2>
                     <p className='my-2'>
@@ -38,8 +38,8 @@ const Payment = () => {
                     <p className='my-2'><span className='font-semibold'>Please Pay:</span> ${calculatedPrice}</p>
                 </div>
             </div>
-            <div class="card lg:max-w-lg bg-base-100 shadow-xl">
-                <div class="p-6 w-96">
+            <div className="card lg:max-w-lg bg-base-100 shadow-xl">
+                <div className="p-6 w-96">
                     <Elements stripe={stripePromise}>
                         <CheckOutForm order={order} />
                     </Elements>

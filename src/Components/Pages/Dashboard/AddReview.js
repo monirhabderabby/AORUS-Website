@@ -66,7 +66,7 @@ const AddReview = () => {
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <textarea name="feedback" class="textarea textarea-bordered w-full my-3" placeholder="Write your feedback"></textarea>
+                <textarea name="feedback" className="textarea textarea-bordered w-full my-3" placeholder="Write your feedback"></textarea>
                 <input type="submit" className="uppercase w-full text-white btn btn-accent" value="Post Review" />
             </form>
         </div>

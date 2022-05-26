@@ -6,20 +6,20 @@ const NoFoundPage = () => {
     return (
         <div>
             <div
-                class="hero h-[90vh]"
+                className="hero h-[90vh]"
                 style={{
                     background: `url(${noPageImg})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                 }}
             >
-                <div class=""></div>
-                <div class="hero-content text-center text-neutral-content">
-                    <div class="text-white">
-                        <h1 class="mb-5 text-5xl font-bold uppercase">
+                <div className=""></div>
+                <div className="hero-content text-center text-neutral-content">
+                    <div className="text-white">
+                        <h1 className="mb-5 text-5xl font-bold uppercase">
                             We are sorry, page not found!
                         </h1>
-                        <p class="mb-5 uppercase">
+                        <p className="mb-5 uppercase">
                             The page you are looking for might have been removed
                             had it names changed or it's temporarily unavailable
                         </p>

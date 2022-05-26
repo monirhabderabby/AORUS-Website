@@ -40,8 +40,8 @@ const AllUser = () => {
             <h1 className="text-blue-700 font-bold text-3xl py-3">
                 All USERS LIST {users?.length}
             </h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>S/L</th>
@@ -63,7 +63,7 @@ const AllUser = () => {
                                         user.role !== "admin" && <button className="btn btn-xs btn-accent" onClick={()=>makeAdmin(user.email)}>Make admin</button>
                                     }
                                     {
-                                        user.role === "admin" && <span class="badge">{user.role}</span>
+                                        user.role === "admin" && <span className="badge">{user.role}</span>
                                     }
                                 </td>
                             </tr>)

@@ -20,8 +20,8 @@ const Purchase = () => {
     }
     return (
         <div>
-            <div class="hero h-[90vh]">
-                <div class="hero-content flex-col lg:flex-row lg:justify-center">
+            <div className="hero h-[90vh]">
+                <div className="hero-content flex-col lg:flex-row lg:justify-center">
                     <div className="flex-1 flex justify-center">
                         <img
                             src={product?.img}
@@ -35,7 +35,7 @@ const Purchase = () => {
                             <p className="py-3">{product?.description}</p>
                             <p><span className="font-semibold">Available Now: </span>{product?.availableQuantity}</p>
                             <p className="py-2"><span className="font-semibold">Price: </span>{product?.price}$</p>
-                            <label for="my-modal-6" class="btn btn-primary text-white mt-3 modal-button" onClick={()=>setOrder(product)}>Order Now</label>
+                            <label for="my-modal-6" className="btn btn-primary text-white mt-3 modal-button" onClick={()=>setOrder(product)}>Order Now</label>
                         </section>
                     </div>
                 </div>

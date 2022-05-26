@@ -7,9 +7,9 @@ const Blogs = () => {
             <div className="px-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {/* Card 1 */}
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <div class="card-body text-left">
-                        <h2 class="card-title">How will you improve the performance of a React Application?</h2>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card-body text-left">
+                        <h2 className="card-title">How will you improve the performance of a React Application?</h2>
                         <p>
                         1.Keeping component state local where necessary. <br />
                         2.Memoizing React components to prevent unnecessary re-renders.{" "}
@@ -20,9 +20,9 @@ const Blogs = () => {
                     </div>
                 </div>
                 {/* card 2  */}
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <div class="card-body text-left">
-                        <h2 class="card-title">What are the different ways to manage a state in a React
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card-body text-left">
+                        <h2 className="card-title">What are the different ways to manage a state in a React
                         application?</h2>
                         <p>
                         1.Local state. <br />
@@ -31,9 +31,9 @@ const Blogs = () => {
                     </div>
                 </div>
                 {/* card 3 */}
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <div class="card-body text-left">
-                        <h2 class="card-title">What is a unit test? Why should write unit tests?</h2>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card-body text-left">
+                        <h2 className="card-title">What is a unit test? Why should write unit tests?</h2>
                         <p>
                         Unit tests are typically automated tests written and run by software
                         developers to ensure that a section of an application meets its
@@ -44,9 +44,9 @@ const Blogs = () => {
                     </div>
                 </div>
                 {/* card 4 */}
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <div class="card-body text-left">
-                        <h2 class="card-title">How does prototypical inheritance work?</h2>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card-body text-left">
+                        <h2 className="card-title">How does prototypical inheritance work?</h2>
                         <p>
                         The Prototypal Inheritance is a feature in javascript used to add
                         methods and properties in objects. It is a method by which an object
@@ -55,9 +55,9 @@ const Blogs = () => {
                     </div>
                 </div>
                 {/* card 5 */}
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <div class="card-body text-left">
-                        <h2 class="card-title">Why you do not set the state directly in React?</h2>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card-body text-left">
+                        <h2 className="card-title">Why you do not set the state directly in React?</h2>
                         <p>
                         One should never update the state directly because of the following
                         reasons: <br /> If you update it directly, calling the setState()

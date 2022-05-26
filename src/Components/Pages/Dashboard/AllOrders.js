@@ -22,8 +22,8 @@ const AllOrders = () => {
             <h1 className="text-blue-700 font-bold text-3xl py-3">
                 All Orders in one place 
             </h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr className="text-center">
                             <th>S/L</th>
@@ -41,7 +41,7 @@ const AllOrders = () => {
                             <td>{order?.productName}</td>
                             <td>
                                 {
-                                    order.paid? <span class="badge text-white">paid</span> : <span class="badge">unpaid</span>
+                                    order.paid? <span className="badge text-white">paid</span> : <span className="badge">unpaid</span>
                                 }
                             </td>
                             <td>{shipping ? <button className='btn btn-sm bg-green-500 outline-none text-white' disabled={shipping}>Shipping</button> : <button className='btn btn-sm bg-red-500 outline-none text-white' onClick={()=> setShipping(true)}>Ship Now</button>}</td>

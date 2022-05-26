@@ -31,43 +31,43 @@ const ProfileUpdateModal = ({setOpenModal, refetch}) => {
     };
     return (
         <div>
-            <input type="checkbox" id="profileModal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                <label for="profileModal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <input type="checkbox" id="profileModal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                <label for="profileModal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <form className="flex flex-col w-full pt-6" onSubmit={handleProfile}>
                         <input
                             type="text"
                             value={user?.displayName}
-                            class="input w-full input-bordered "
+                            className="input w-full input-bordered "
                             readOnly
                         />
                         <input
                             type="email"
                             value={user?.email}
-                            class="input my-3 w-full input-bordered "
+                            className="input my-3 w-full input-bordered "
                             readOnly
                         />
                         <input
                             type="date"
                             name="age"
                             placeholder="Birthday"
-                            class="input w-full mb-3 input-bordered"
+                            className="input w-full mb-3 input-bordered"
                         />
                         <input
                             type="text"
                             name="institute"
                             placeholder="Your University / College"
-                            class="input w-full input-bordered"
+                            className="input w-full input-bordered"
                         />
                         <textarea
                             name="presentAddress"
-                            class="textarea textarea-bordered my-3"
+                            className="textarea textarea-bordered my-3"
                             placeholder="Present Address"
                         ></textarea>
                         <textarea
                             name="parmanentAddress"
-                            class="textarea textarea-bordered"
+                            className="textarea textarea-bordered"
                             placeholder="Permanent Address"
                         ></textarea>
                         <input 

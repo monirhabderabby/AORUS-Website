@@ -62,17 +62,17 @@ const OrderModal = ({product, setOrder}) => {
     }
     return (
         <div>
-            <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                <label for="my-modal-6" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                <label for="my-modal-6" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-xl">Please Provide information for Order</h3>
                     <form onSubmit={handlePlaceOrder}>
-                    <input type="text" name="name" value={user?.displayName} class="input input-bordered w-full" readOnly />
-                    <input type="text" name="email" value={user?.email} class="input input-bordered w-full my-3" readOnly />
-                    <input type="text" name="location" placeholder="Enter your pickup location" class="input input-bordered w-full my-3"  />
-                    <input type="text" name="productName" value={product?.name} class="input input-bordered w-full mb-3" readOnly />
-                    <input type="number" name="orderQuantity"  placeholder={`Minimum order ${product?.minimumOrder}`} class="input input-bordered w-full mb-3" />
+                    <input type="text" name="name" value={user?.displayName} className="input input-bordered w-full" readOnly />
+                    <input type="text" name="email" value={user?.email} className="input input-bordered w-full my-3" readOnly />
+                    <input type="text" name="location" placeholder="Enter your pickup location" className="input input-bordered w-full my-3"  />
+                    <input type="text" name="productName" value={product?.name} className="input input-bordered w-full mb-3" readOnly />
+                    <input type="number" name="orderQuantity"  placeholder={`Minimum order ${product?.minimumOrder}`} className="input input-bordered w-full mb-3" />
                     <input type="submit" value="Place Order" className="btn btn-primary w-full" />
                     </form>
                 </div>

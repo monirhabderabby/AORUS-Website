@@ -29,12 +29,12 @@ const BusinessSummary = () => {
                 </div>
                 <div className="flex flex-col items-center">
                     <UserGroupIcon className="h-12 w-12 text-blue-500" />
-                    <p className="text-3xl font-bold">471+</p>
+                    <p className="text-3xl font-bold">4471+</p>
                     <p className="text-secondary">Happy Clients</p>
                 </div>
                 <div className="flex flex-col items-center">
                     <HeartIcon className="h-12 w-12 text-blue-500" />
-                    <p className="text-3xl font-bold">350+</p>
+                    <p className="text-3xl font-bold">13350+</p>
                     <p className="text-secondary">Reviews</p>
                 </div>
             </div>
